@@ -1,9 +1,10 @@
 const express = require("express");
 const { json, urlencoded } = require("express");
 const path = require('path');
-const todo = require('./routes');
+const todo = require('./routes/todo');
 const app = express();
 
+require(./config/db);
 app.use(json());
 app.use(urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
